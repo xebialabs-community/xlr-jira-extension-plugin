@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <type type="jira.CheckIssue" extends="xlrelease.PythonScript">
+        <property name="scriptLocation" default="jira/checkIssue.py" category="input" hidden="true" />
+        <property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
+        <property name="username" category="input"/>
+        <property name="password" password="true" category="input"/>
+        <property name="issueId" category="input"/>
+        <property name="expectedStatus" category="input" default=""/>
+        <property name="pollInterval" category="input" kind="integer" description="Time in seconds between each polling action" default="30" />
+    </type>
+</synthetic>
