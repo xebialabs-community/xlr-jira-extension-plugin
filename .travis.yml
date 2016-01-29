@@ -1,0 +1,15 @@
+language: java
+sudo: false
+deploy:
+  provider: releases
+  api_key:
+    secure: R6ZSdzbH6R0RBkv2aMXsPhSBoCv4746TE7jJVaJiyXVDQSbdIW4j0NTG4+lOVpoG2nA93cG42cj63aS2OPTGjWlAjIuVPTGGnUdJz0b28xwHgHipEG6G7ikkP5GpGSoy++ZKJFSOpjpXWkSt4LyB1CVzjASsiE+B8pBpDz9n1jI=
+  file: build/distributions/xlr-jira-extensions-plugin-1.1.0.jar
+  on:
+    all_branches: true
+    tags: true
+    repo: xebialabs-community/xlr-jira-extension-plugin
+notifications:
+  hipchat:
+    rooms:
+      secure: iV4Blo4W/Fsq5+x6+xii7+zdLTj2MX7inZlMbfNn6i6SnbEvDTQwJT5NUzkFPqGmpv70PGMssj3qSnHe0IGf5nSeqjcyt2VYDPRLV0YkULM0tXsLQGd6tXOUqOSHCFUkO48zQCWSyYsKXZr6FCxf4pKjTv69oorsQm4auJVKP/E=
