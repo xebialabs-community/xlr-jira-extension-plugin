@@ -3,12 +3,8 @@ sudo: false
 deploy:
   provider: releases
   api_key:
-    secure: R6ZSdzbH6R0RBkv2aMXsPhSBoCv4746TE7jJVaJiyXVDQSbdIW4j0NTG4+lOVpoG2nA93cG42cj63aS2OPTGjWlAjIuVPTGGnUdJz0b28xwHgHipEG6G7ikkP5GpGSoy++ZKJFSOpjpXWkSt4LyB1CVzjASsiE+B8pBpDz9n1jI=
-  file: build/distributions/xlr-jira-extensions-plugin-1.1.0.jar
-  on:
-    all_branches: true
-    tags: true
-    repo: xebialabs-community/xlr-jira-extension-plugin
+    secure: s/ClAO2i9A8XlCzr9CQwlDCw9rMsKyLF5rN4AQgBn7L8em2Ed3Ug3A2zeX88+/qjXTSQJiVz+5w6+/g7e0BBnP7gSlvx4FDBxT6A51VLu1DYGpMY4m7sugNZN9akhIiqeuKDV+1sg19LYQUOJnFBJviYigAFSn7RFG29aK6BYaKMluvHd2NsrK2XemXe+9ABbzX86r1yMdroKMtUJKEuXYxk6yKnotUo9Ear6p8lyHRVCzo9KuvS8KBLt+FNWEaP5vXUsrdw+xc402GdlZA5o1fB6uPQckm0LAm//R1gvU/a7z856pFUvgOzfgJAhRntEbWSfbAVOm26hTFlaiJJHRYvolBYvrW6ygDAcpxjagd8UuAilsr/nQO+RXiV6rgjwWWArZyN+VSvXawOHz0czmwdn3I3LMtNTR8oxrVXabPCL4iFzC4BzGU1Q3o6cU8BLTj9a+nUYtWBmIE9zoWsIXhDVQYhENXKUZk5tSuj4mi9I3VGlKvw/wDPr7hPk3FTPFQKWDfVSKYHFMJQgdRot2/m8cgqYr6wqSZh1FuN0vo7ooOsOtFqMaJE5bnT7UXNJcmC+XD2XcLAfuCpg9vf2bZjV1FeuHHA3DyzR30Py5aLByDQbxnblEL2AEmfTECS6qLmbrrf2lG3cz1VKFDbW0EG4u9qB2Fc9qBNZnTbeQc=
+  file: build//libs/xlr-jira-extensions-plugin-1.1.0.jar
 notifications:
   hipchat:
     rooms:
