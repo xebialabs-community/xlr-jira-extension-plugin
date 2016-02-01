@@ -1,13 +1,14 @@
 language: java
-sudo: false
-deploy:
-  provider: releases
-  api_key:
-    secure: uvApPTqwXGbCihW2sC3AXepi48hxJbWCH/sF5ilJl8TgirYna9iPygQL1MoIDvLVsjYJzOhqptIFDZBju0jVgeWEWhlU65JnNxiz/0Yc/I3P+YvtOG5F1aVMnU53Kybw5QwMkplJdi7u6qqKcyNg4bVFmYzOgJyI0n9XQ/Bx8kEI5SWN6YGj/Bi6hXI8j9/1pftSGE5OLxEQblPDe/7VUXpQeDnFQSoxyyT2/yqF0PQW6JCBQKiML4tYX1uivqjsl3qTSiWFwGZP0CsbRDM5lEpTR7/mSUJV9o6Pv5SuI4a7Wt1D1rF9Ip8aAlhmZWdTGgJco7d+Ge60wSGfQNUo5wPdPzQDiaXW09YCGLAX2M8eMY7/QvWrhTpSNeuQPK+OtZuFbfXI44e5Jj3Ki9sDqkvttyRDxr5tiiTeCjGdQp/Yn5s/M81CbyFwg9NGH+KlZndVsEju5Xr3Aih9IhIKlrPSuG50a6ij7h93e5f1nDqAaMWMdYQTo1UFBDmTZ2R882fychN9cRnpzqE19nL7tj+J8lzb45HuLXEX2PXO69ltrlHXyOfO6ae1NhzHfZRong38HIrT9L+qhlWDLPJkZ1Xtp1TAsGkR4d4ZIkm9XJYycZLg7xjQP69gbCop+Ma/tbCtf2pHbf8TZflm25b+lYxYORpYa3arKUwM5T2q8Cw=
-  file: build/libs/xlr-jira-extensions-plugin-1.1.0.jar
-  on:
-    repo: xebialabs-community/xlr-jira-extension-plugin
 notifications:
+  slack:
+    secure: iV4Blo4W/Fsq5+x6+xii7+zdLTj2MX7inZlMbfNn6i6SnbEvDTQwJT5NUzkFPqGmpv70PGMssj3qSnHe0IGf5nSeqjcyt2VYDPRLV0YkULM0tXsLQGd6tXOUqOSHCFUkO48zQCWSyYsKXZr6FCxf4pKjTv69oorsQm4auJVKP/E=
   hipchat:
     rooms:
       secure: iV4Blo4W/Fsq5+x6+xii7+zdLTj2MX7inZlMbfNn6i6SnbEvDTQwJT5NUzkFPqGmpv70PGMssj3qSnHe0IGf5nSeqjcyt2VYDPRLV0YkULM0tXsLQGd6tXOUqOSHCFUkO48zQCWSyYsKXZr6FCxf4pKjTv69oorsQm4auJVKP/E=
+deploy:
+  provider: releases
+  api_key:
+    secure: NXQa7xLA7qoyqgdvGDfHil4OaDmsg8beKkD7EJhGm/kFqOR0d5QTrnLGFmhwx4Pe4Ln7NBb6tuxNYSVLAJnZaOaIN3zbzwE4EbZX0VQHChPa+0xlwjJG1cE0gCKPg+ePUuRiJ1kijrL8ztApryUjIX+oHmzuXuxDtQ95VU0ZLn0wSxglq5COZ1LHHwTQZoT/1Xeavl9cMBfM6oXl+8BX2bmRNg91eKSLsiiOe8KlRI5L/48E/1UPxFdZVXd8a8l+JZOs6NiZOegVJOa1soTloXo24OrJ9tpxZLk+geHxpx4vW7UyQvo13wd7mlliaoqOOOq+mBzgHcbA93+4leP2gqU1yeZmQFfIa0BiQb0IW4ncItwinMHHsXY8VpD9eVQWCTjbSdTmJoDPFXBPGMFLf0lCeqM039rHB+Bfss2Una1Q7PvKMwvdch9djfejoixxl8fFk+FC59qsjE9ag67urxvpaFqbr6dJlCPnagzmQTG69quf1SAdbUDJD5UnfS1H2wSlwaMu+8BC5G+JlcfLjFjI2aLxYIXx1D0Mh6IEmGGtcWj+KGTFc6QL5MwiT0aHpxpGjJv2d6V2usKBbhpF2Kwtz7wixx8p8J7EfH9BJQ8fCPlvXheDkFWS1HGRQMfIkhZsDMUw4wx4XoR0WblfLaRem+lBs9w9nkG4jhpMYVg=
+  file: build/libs/xlr-jira-extensions-plugin-1.1.0.jar
+  on:
+    repo: xebialabs-community/xlr-jira-extension-plugin
