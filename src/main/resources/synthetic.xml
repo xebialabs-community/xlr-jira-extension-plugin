@@ -15,6 +15,17 @@
         <property name="password" password="true" category="input"/>
         <property name="issueId" category="input"/>
         <property name="expectedStatus" category="input" default=""/>
-        <property name="pollInterval" category="input" kind="integer" description="Time in seconds between each polling action" default="30" />
+        <property name="pollInterval" category="input" kind="integer" 
+                  description="Time in seconds between each polling action" default="30" />
     </type>
+
+    <type type="jira.CheckQuery" extends="jira.JiraScript">
+        <property name="query" category="input"  description="Query in JQL (JIRA Query Language)" />
+        <property name="issues" category="output" kind="map_string_string" required="false" label="Issues" 
+                  description="IDs and summary of found issues"/>
+        <property name="expectedStatus" category="input" default=""/>
+        <property name="pollInterval" category="input" kind="integer" 
+                  description="Time in seconds between each polling action" default="30" />
+    </type>
+
 </synthetic>
