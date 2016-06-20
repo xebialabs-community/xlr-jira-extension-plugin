@@ -19,5 +19,5 @@ Place the latest released version under the `plugins` dir.
   * `username` - Optional username override for the connection to Jira
   * `password` - Optional password override for the connection to Jira
   * `issueId` - Jira issue ID to check, e.g. SAN-672
-  * `expectedStatus` - This is the Jira status to complete on, the task will poll until this status is meet. This checks for a status name, e.g. "Resolved". To double check the case of a status, export an issue to XML and check the value of the status field.
+  * `expectedStatus` - This is the Jira status to complete on, the task will poll until this status is met. This checks for a status name, e.g. "Resolved". To double check the case of a status, export an issue to XML and check the value of the status field.
   * `pollInterval` - Inteval in seconds between polling actions
