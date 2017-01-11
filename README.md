@@ -2,7 +2,22 @@
 
 This document describes the functionality provided by the xlr-jira-extension-plugin.
 
-See the **XL Release Reference Manual** for background information on XL Release and release concepts.
+See the **[XL Release Documentation](https://docs.xebialabs.com/xl-release/index.html)** for background information on XL Release and release concepts.
+
+# CI status #
+
+[![Build Status][xlr-jira-extension-plugin-travis-image] ][xlr-jira-extension-plugin-travis-url]
+[![Build Status][xlr-jira-extension-plugin-codacy-image] ][xlr-jira-extension-plugin-codacy-url]
+[![Build Status][xlr-jira-extension-plugin-code-climate-image] ][xlr-jira-extension-plugin-code-climate-url]
+
+
+[xlr-jira-extension-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-jira-extension-plugin.svg?branch=master
+[xlr-jira-extension-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xlr-jira-extension-plugin
+[xlr-jira-extension-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/b92a4ed7e0be40c98a77737884ce2f8d
+[xlr-jira-extension-plugin-codacy-url]: https://www.codacy.com/app/rvanstone/xlr-jira-extension-plugin
+[xlr-jira-extension-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-jira-extension-plugin/badges/gpa.svg
+[xlr-jira-extension-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-jira-extension-plugin
+
 
 # Overview #
 
