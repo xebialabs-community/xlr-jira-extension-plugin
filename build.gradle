@@ -1,18 +1,24 @@
-buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath "nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0"
-  }
+plugins {
+  id "com.github.hierynomus.license" version "0.13.0"
+  id "com.xebialabs.xl.docker" version "1.0.0"
 }
 
-version="1.1.0"
+version = "1.1.0"
 
-apply plugin: "com.github.hierynomus.license"
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+xlDocker {
+  compileImage = 'xebialabs/xlr_dev_compile'
+  compileVersion = 'v6.0.0.1'
+  runImage = 'xebialabs/xlr_dev_run'
+  runVersion = 'v6.0.0.1'
+  runPortMapping = '15516:5516'
+}
 
 license {
-    header rootProject.file('src/main/license/xebialabs_community.license')
-    strictCheck true
+  header rootProject.file('src/main/license/xebialabs_community.license')
+  strictCheck false
 }
