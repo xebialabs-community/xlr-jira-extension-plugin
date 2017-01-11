@@ -17,14 +17,13 @@ matchedStatus = 0
 tickets = jira.checkQuery(query)
 
 for key, value in tickets.items():
-    if value[1] == expectedStatus:
-         matchedStatus = matchedStatus + 1
-         issues[key] = "%s - (%s)" % value
+    count = count + 1
+    issues[key] = "%s - (%s)" % value
     # end if
 # End for
 
 
-if matchedStatus > 0:
+if count > 0:
    print "#### Issues found"
    for key, value in issues.items():
        print u"* {0} - {1}".format(jira._link(key), value)
