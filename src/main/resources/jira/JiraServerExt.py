@@ -174,3 +174,50 @@ class JiraServerExt:
     def _serialize(self, content):
         return Json.dumps(content).encode(self.encoding)
 
+    def getVersionIdsForProject(self, projectId):
+        print "Executing jira.getVersionIdsForProject\n"
+        if not projectId:
+            error("No project id provided.")
+        request = self._createRequest()
+        response = request.get(self._versionsUrl(projectId), contentType="application/json")
+        if response.status != 200:
+            error(u"Unable to find versions for project id %s" % projectId, response)
+        versionIds = []
+        for item in Json.loads(response.response):
+          versionIds.append(item['id'])
+        print str(versionIds) + "\n"
+        print "Exiting jira.getVersionIdsForProject\n"
+        return versionIds
+
+    def _versionsUrl(self, projectId):
+        return "/rest/api/2/project/%s/versions" % projectId
+
+    def queryForIssueIds(self, query):
+        if not query:
+            error('No JQL query provided.')
+
+        # Create POST body
+        content = {
+            'jql': query,
+            'startAt': 0,
+            'fields': ['summary'],
+            'maxResults': 1000
+        }
+
+        # Do request
+        request = self._createRequest()
+        response = request.post('/rest/api/2/search', self._serialize(content), contentType='application/json')
+
+        # Parse result
+        if response.status == 200:
+            data = Json.loads(response.response)
+            print "#### Issues found"
+            issueIds = []
+            for item in data['issues']:
+                issueIds.append(item['id'])
+                print u"* {0} - {1}".format(item['id'], item['key'])
+            print "\n"
+            return issueIds
+        else:
+            error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
+

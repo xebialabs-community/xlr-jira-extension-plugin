@@ -35,5 +35,16 @@
                   description="IDs and summary of found issues"/>
     </type>
 
+    <type type="jira.queryForIssueIds" extends="jira.JiraScript">
+        <property name="scriptLocation" default="jira/queryForIssueIds.py" hidden="true" />
+        <property name="query" category="input" />
+        <property name="issueIds" category="output" kind="list_of_string" />
+    </type>
+
+    <type type="jira.getVersions" extends="jira.JiraScript">
+        <property name="scriptLocation" default="jira/getVersions.py" hidden="true" />
+        <property name="projectId" category="input" />
+        <property name="versions" category="output" kind="list_of_string" />
+    </type>
 
 </synthetic>
