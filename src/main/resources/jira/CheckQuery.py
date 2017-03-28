@@ -24,12 +24,12 @@ while  len(tickets) != matchedStatus :
      tickets = jira.checkQuery(query)
      for key, value in tickets.items():
          if value[1] == expectedStatus:
-              matchedStatus + 1
+              matchedStatus += 1
          # End if
          issues[key] = "%s - (%s)" % value
      # End for
      time.sleep( pollInterval )
-     count = count + 1
+     count += 1
 # End while 
 
 print "#### Issues found"
