@@ -7,8 +7,9 @@ See the **[XL Release Documentation](https://docs.xebialabs.com/xl-release/index
 # CI status #
 
 [![Build Status][xlr-jira-extension-plugin-travis-image] ][xlr-jira-extension-plugin-travis-url]
-[![Build Status][xlr-jira-extension-plugin-codacy-image] ][xlr-jira-extension-plugin-codacy-url]
-[![Build Status][xlr-jira-extension-plugin-code-climate-image] ][xlr-jira-extension-plugin-code-climate-url]
+[![Codacy][xlr-jira-extension-plugin-codacy-image] ][xlr-jira-extension-plugin-codacy-url]
+[![Code Climate][xlr-jira-extension-plugin-code-climate-image] ][xlr-jira-extension-plugin-code-climate-url]
+[![License: MIT][xlr-jira-extension-plugin-license-image] ][xlr-jira-extension-plugin-license-url]
 
 
 [xlr-jira-extension-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-jira-extension-plugin.svg?branch=master
@@ -17,6 +18,9 @@ See the **[XL Release Documentation](https://docs.xebialabs.com/xl-release/index
 [xlr-jira-extension-plugin-codacy-url]: https://www.codacy.com/app/rvanstone/xlr-jira-extension-plugin
 [xlr-jira-extension-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-jira-extension-plugin/badges/gpa.svg
 [xlr-jira-extension-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-jira-extension-plugin
+[xlr-jira-extension-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xlr-jira-extension-plugin-license-url]: https://opensource.org/licenses/MIT
+
 
 
 # Overview #
