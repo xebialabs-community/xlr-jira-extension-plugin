@@ -30,7 +30,7 @@ while  len(tickets) != matchedStatus :
      # End for
      time.sleep( pollInterval )
      count = count + 1
-# End while 
+# End while
 
 print "#### Issues found"
 for key, value in issues.items():
