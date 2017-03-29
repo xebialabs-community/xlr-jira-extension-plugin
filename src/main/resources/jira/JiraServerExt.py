@@ -13,8 +13,8 @@ import com.xhaus.jyson.JysonCodec as Json
 from jira import JiraServer
 from util import error
 
-class JiraServerExt(JiraServer):
 
+class JiraServerExt(JiraServer):
     def checkQuery(self, query):
         if not query:
             error('No JQL query provided.')
@@ -42,7 +42,6 @@ class JiraServerExt(JiraServer):
         else:
             error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
 
-
     def getVersionIdsForProject(self, projectId):
         print "Executing jira.getVersionIdsForProject\n"
         if not projectId:
@@ -53,7 +52,7 @@ class JiraServerExt(JiraServer):
             error(u"Unable to find versions for project id %s" % projectId, response)
         versionIds = []
         for item in Json.loads(response.response):
-          versionIds.append(item['id'])
+            versionIds.append(item['id'])
         print str(versionIds) + "\n"
         print "Exiting jira.getVersionIdsForProject\n"
         return versionIds
@@ -99,7 +98,6 @@ class JiraServerExt(JiraServer):
             error(u"Unable to find boards for {0}".format(board_name), response)
         return Json.loads(response.response)['values']
 
-
     def get_all_sprints(self, board):
         if not board:
             error("No board id provided")
@@ -108,11 +106,12 @@ class JiraServerExt(JiraServer):
         sprints = {}
         if response.status != 200:
             error(u"Unable to find sprints for board {0}".format(board["name"]), response)
-        sprints_json =  Json.loads(response.response)['values']
+        sprints_json = Json.loads(response.response)['values']
         for sprint_json in sprints_json:
             sprints[sprint_json["name"]] = sprint_json["id"]
-            print "| %s | %s | %s | %s |" % (sprint_json["name"], sprint_json["id"], sprint_json["startDate"], sprint_json["endDate"])
+            print "| %s | %s | %s | %s |" % (sprint_json["name"], sprint_json["id"],
+                                             sprint_json["startDate"] if sprint_json.has_key(
+                                                 "startDate") else "not defined",
+                                             sprint_json["endDate"] if sprint_json.has_key(
+                                                 "endDate") else "not defined")
         return sprints
-
-
-

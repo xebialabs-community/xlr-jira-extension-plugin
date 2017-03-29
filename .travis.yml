@@ -9,7 +9,7 @@ deploy:
   provider: releases
   api_key:
     secure: NXQa7xLA7qoyqgdvGDfHil4OaDmsg8beKkD7EJhGm/kFqOR0d5QTrnLGFmhwx4Pe4Ln7NBb6tuxNYSVLAJnZaOaIN3zbzwE4EbZX0VQHChPa+0xlwjJG1cE0gCKPg+ePUuRiJ1kijrL8ztApryUjIX+oHmzuXuxDtQ95VU0ZLn0wSxglq5COZ1LHHwTQZoT/1Xeavl9cMBfM6oXl+8BX2bmRNg91eKSLsiiOe8KlRI5L/48E/1UPxFdZVXd8a8l+JZOs6NiZOegVJOa1soTloXo24OrJ9tpxZLk+geHxpx4vW7UyQvo13wd7mlliaoqOOOq+mBzgHcbA93+4leP2gqU1yeZmQFfIa0BiQb0IW4ncItwinMHHsXY8VpD9eVQWCTjbSdTmJoDPFXBPGMFLf0lCeqM039rHB+Bfss2Una1Q7PvKMwvdch9djfejoixxl8fFk+FC59qsjE9ag67urxvpaFqbr6dJlCPnagzmQTG69quf1SAdbUDJD5UnfS1H2wSlwaMu+8BC5G+JlcfLjFjI2aLxYIXx1D0Mh6IEmGGtcWj+KGTFc6QL5MwiT0aHpxpGjJv2d6V2usKBbhpF2Kwtz7wixx8p8J7EfH9BJQ8fCPlvXheDkFWS1HGRQMfIkhZsDMUw4wx4XoR0WblfLaRem+lBs9w9nkG4jhpMYVg=
-  file: build/libs/xlr-jira-extensions-plugin-1.2.0.jar
+  file: build/libs/xlr-jira-extensions-plugin-1.2.1.jar
   skip_cleanup: true
   on:
     all_branches: true
