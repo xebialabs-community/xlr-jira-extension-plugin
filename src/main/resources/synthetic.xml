@@ -13,11 +13,7 @@
 
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <type type="jira.CheckIssue" extends="xlrelease.PythonScript">
-        <property name="scriptLocation" default="jira/checkIssue.py" category="input" hidden="true" />
-        <property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
-        <property name="username" category="input"/>
-        <property name="password" password="true" category="input"/>
+    <type type="jira.CheckIssue" extends="jira.JiraScript">
         <property name="issueId" category="input"/>
         <property name="expectedStatus" category="input" default=""/>
         <property name="pollInterval" category="input" kind="integer" 
@@ -41,15 +37,21 @@
     </type>
 
     <type type="jira.queryForIssueIds" extends="jira.JiraScript">
-        <property name="scriptLocation" default="jira/queryForIssueIds.py" hidden="true" />
+        <property name="scriptLocation" default="jira/QueryForIssueIds.py" hidden="true" />
         <property name="query" category="input" />
         <property name="issueIds" category="output" kind="list_of_string" />
     </type>
 
     <type type="jira.getVersions" extends="jira.JiraScript">
-        <property name="scriptLocation" default="jira/getVersions.py" hidden="true" />
+        <property name="scriptLocation" default="jira/GetVersions.py" hidden="true" />
         <property name="projectId" category="input" />
         <property name="versions" category="output" kind="list_of_string" />
+    </type>
+
+    <type type="jira.getAllSprints" extends="jira.JiraScript">
+        <property name="scriptLocation" default="jira/GetAllSprints.py" hidden="true" />
+        <property name="boardName" label="Board Name" required="true" category="input" kind="string" description="Filters results to boards that match or partially match the specified name."/>
+        <property name="sprints" category="output" kind="map_string_string" description="Map containing Sprint Name and id." />
     </type>
 
 </synthetic>

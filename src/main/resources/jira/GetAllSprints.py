@@ -8,32 +8,12 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-
-import time
 from jira.JiraServerExt import JiraServerExt
 
 jira = JiraServerExt(jiraServer, username, password)
-
-tickets = jira.checkQuery(query)
-
-issues = {}
-count = 0
-matchedStatus = 0
-while  len(tickets) != matchedStatus :
-     matchedStatus = 0
-     tickets = jira.checkQuery(query)
-     for key, value in tickets.items():
-         if value[1] == expectedStatus:
-              matchedStatus += 1
-         # End if
-         issues[key] = "%s - (%s)" % value
-     # End for
-     time.sleep( pollInterval )
-     count += 1
-# End while
-
-print "#### Issues found"
-for key, value in issues.items():
-     print u"* {0} - {1}".format(jira._link(key), value)
-# End for
-
+boards = jira.get_boards(boardName)
+sprints = {}
+print "| Name | id | startDate | endDate |"
+print "| ---- | ---- | ---- | ---- |"
+for board in boards:
+    sprints.update(jira.get_all_sprints(board))
