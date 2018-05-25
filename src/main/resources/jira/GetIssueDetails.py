@@ -10,7 +10,6 @@
 
 import sys
 import com.xhaus.jyson.JysonCodec as json
-import time
 
 ISSUE_RETREIVED_STATUS = 200
 
