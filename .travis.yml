@@ -1,4 +1,5 @@
 language: java
+sudo: false
 notifications:
   slack:
     secure: iV4Blo4W/Fsq5+x6+xii7+zdLTj2MX7inZlMbfNn6i6SnbEvDTQwJT5NUzkFPqGmpv70PGMssj3qSnHe0IGf5nSeqjcyt2VYDPRLV0YkULM0tXsLQGd6tXOUqOSHCFUkO48zQCWSyYsKXZr6FCxf4pKjTv69oorsQm4auJVKP/E=
