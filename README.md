@@ -79,3 +79,9 @@ Place the latest released version under the `plugins` dir.
   * `expectedStatus` - This is the Jira status to complete on, the task will poll until this status is met. This checks for a status name, e.g. "Resolved". To double check the case of a status, export an issue to XML and check the value of the status field.
   * `pollInterval` - Interval in seconds between polling actions
   
+### Get Issue Details
+
++ Get the details for a specific ticket
+ * `Issue Id` - Issue Ticket
+
+![GetIssueDetails](images/GetIssueDetails.png)

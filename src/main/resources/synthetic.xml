@@ -36,6 +36,12 @@
                   description="IDs and summary of found issues"/>
     </type>
 
+    <type type="jira.GetIssueDetails" extends="jira.JiraScript">
+        <property name="issueId"      category="input" />
+        <property name="issueDetails" category="output" kind="map_string_string" required="false" />
+    </type>
+
+
     <type type="jira.queryForIssueIds" extends="jira.JiraScript">
         <property name="scriptLocation" default="jira/QueryForIssueIds.py" hidden="true" />
         <property name="query" category="input" />
