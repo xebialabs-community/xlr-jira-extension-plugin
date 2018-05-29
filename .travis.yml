@@ -12,6 +12,7 @@ deploy:
     secure: xUtKmcvWJLiRUodRaCBlcYoPu8nH249nzPNyLjp6xGhndCFbUKe5WaZ5cOf6zSV/T1q0WAIScXNG5gJV8UbfYa67Ra+g55euiIjohq0oMsbU+Q0y/r6zdkwwpLphzTahTKW2UIm7XbWDscR9RYRjC+P1BygOBIg0oPsYw35drKRZWIyhWC4Pd5LIdZo6WYRhb10TpZ9EYwEOw7npNwjLkZUe11ZWwOuX5zMvvjRgNCj9C+DqeKPKdgOzqrEAMRNc/tJl0cm+w8WPuKMx8GzsLBzchEAVhvnzgby2rsL2Cd/b0Sj+Q1hyWXWywFZcUYoEHaR/vr4cV/j8BI3XMzdpAJ1yfszwFhcA7L8OaAUZ7apW6JtT+dJqce2UIvpLRFyuUFOFWPcdJemADNtH0rsLpt2iSz8qGLMCE58UWC/1sn7J6OIY/jjPTQ+QI5Hnyg50OXEQZkOkQlDOXnuXHLG+l7e35dh9ZMb/YHap33OX7IlZp1i7w6Sn95+tBIVx5Cmh/3+cBPZd6XYZ/zaWN+M/bGUpOBxjfYcCnGk3HI/a/DAeuUIlhRJ7vePtTu/fx9kalXkaQ1X/av7x5G05loCRkMFKFEOX3kG46aPWn1d/s7XcJy/50X5aEGuwDbjawLGDdHBh4qZPM3u3OnqLrnODwQVBxJRYCxGBuftRi6yEWZs=
   file_glob: true
   file: build/libs/*
+  skip_cleanup: true
   on:
     all_branches: true
     tags: true
