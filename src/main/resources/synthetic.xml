@@ -13,6 +13,20 @@
 
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+    <type type="jira.IssueTrigger" extends="xlrelease.ReleaseTrigger" description="Triggers release when a new ticket in a list returned by JQL is triggered.">
+        <!-- common -->
+        <property name="jql" required="true" description="Name of the docker image"/>
+
+        <!-- repository -->
+        <property name="server" category="JIRA" referenced-type="jira.Server" kind="ci" description="JIRA server to execute JQL against. Make sure to order in a specific order, see https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-keywords-reference-764478340.html?_ga=2.210588821.1256381095.1529514991-1866243919.1515112423#Advancedsearching-keywordsreference-ORDER_BYORDERBY"/>
+
+        <property name="username" category="JIRA" default="" required="false" description="Custom username to override global server configuration"/>
+        <property name="password" category="JIRA" default="" required="false" password="true" description="Custom password to override global server configuration"/>
+
+        <!-- output variables -->
+        <property name="latestIssue" category="variables" required="false" description="Latest issue found in list."/>
+    </type>
+
     <type type="jira.CheckIssue" extends="jira.JiraScript">
         <property name="issueId" category="input"/>
         <property name="expectedStatus" category="input" default=""/>
