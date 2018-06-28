@@ -8,7 +8,6 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-import sys, string, time, traceback
 import com.xhaus.jyson.JysonCodec as json
 from jira.JiraServerExt import JiraServerExt
 
@@ -18,16 +17,15 @@ if server is None:
 if jql is None:
     sys.exit("No jql provided.")
 
-jira = JiraServerExt(jiraServer, username, password)
+jiraExt = JiraServerExt(server, username, password)
+issueKeys = jiraExt.queryForFields(jql, ["key"])
 
-try:
-    issues = jira.queryForIssueIds( jql )
+if len(issueKeys) == 0:
+    print("No issues found based on jql")
+else:
+    mostRecentIssueKey = issueKeys[0]["key"]
 
-    latestIssue = issues[0]
-
-    triggerState = latestIssue
-
-    print("Setting latestIssue/triggerState %s" % triggerState)
-
-except Exception, e:
-    sys.exit("Failed to find issues in JIRA: [%s]" % str(e))
+    if mostRecentIssueKey != triggerState:
+        print("New issue key, setting triggerState %s" % mostRecentIssueKey)
+        triggerState = mostRecentIssueKey
+        latestIssue = mostRecentIssueKey

@@ -13,20 +13,6 @@
 
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <type type="jira.IssueTrigger" extends="xlrelease.ReleaseTrigger" description="Triggers release when a new ticket in a list returned by JQL is triggered.">
-        <!-- common -->
-        <property name="jql" required="true" description="Name of the docker image"/>
-
-        <!-- repository -->
-        <property name="server" category="JIRA" referenced-type="jira.Server" kind="ci" description="JIRA server to execute JQL against. Make sure to order in a specific order, see https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-keywords-reference-764478340.html?_ga=2.210588821.1256381095.1529514991-1866243919.1515112423#Advancedsearching-keywordsreference-ORDER_BYORDERBY"/>
-
-        <property name="username" category="JIRA" default="" required="false" description="Custom username to override global server configuration"/>
-        <property name="password" category="JIRA" default="" required="false" password="true" description="Custom password to override global server configuration"/>
-
-        <!-- output variables -->
-        <property name="latestIssue" category="variables" required="false" description="Latest issue found in list."/>
-    </type>
-
     <type type="jira.CheckIssue" extends="jira.JiraScript">
         <property name="issueId" category="input"/>
         <property name="expectedStatus" category="input" default=""/>
@@ -43,7 +29,6 @@
                   description="Time in seconds between each polling action" default="30" />
     </type>
 
-
     <type type="jira.CheckQueryNoPoll" extends="jira.JiraScript">
         <property name="query" category="input"  description="Query in JQL (JIRA Query Language)" />
         <property name="issues" category="output" kind="map_string_string" required="false" label="Issues"
@@ -54,7 +39,6 @@
         <property name="issueId"      category="input" />
         <property name="issueDetails" category="output" kind="map_string_string" required="false" />
     </type>
-
 
     <type type="jira.queryForIssueIds" extends="jira.JiraScript">
         <property name="scriptLocation" default="jira/QueryForIssueIds.py" hidden="true" />
@@ -72,6 +56,20 @@
         <property name="scriptLocation" default="jira/GetAllSprints.py" hidden="true" />
         <property name="boardName" label="Board Name" required="true" category="input" kind="string" description="Filters results to boards that match or partially match the specified name."/>
         <property name="sprints" category="output" kind="map_string_string" description="Map containing Sprint Name and id." />
+    </type>
+
+    <type type="jira.IssueTrigger" extends="xlrelease.ReleaseTrigger" description="Triggers release when a new ticket in a list returned by JQL is triggered.">
+        <!-- common -->
+        <property name="jql" required="true" description="Query in JQL to monitor for new issues. Make sure to 'order by' in a specific order, see https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-keywords-reference-764478340.html?_ga=2.210588821.1256381095.1529514991-1866243919.1515112423#Advancedsearching-keywordsreference-ORDER_BYORDERBY."/>
+
+        <!-- repository -->
+        <property name="server" category="JIRA" referenced-type="jira.Server" kind="ci" description="JIRA server to execute JQL against."/>
+
+        <property name="username" category="JIRA" default="" required="false" description="Custom username to override global server configuration"/>
+        <property name="password" category="JIRA" default="" required="false" password="true" description="Custom password to override global server configuration"/>
+
+        <!-- output variables -->
+        <property name="latestIssue" category="variables" required="false" description="Latest issue key found in list."/>
     </type>
 
 </synthetic>

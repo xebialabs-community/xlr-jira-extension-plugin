@@ -60,7 +60,7 @@ class JiraServerExt(JiraServer):
     def _versionsUrl(self, projectId):
         return "/rest/api/2/project/%s/versions" % projectId
 
-    def queryForIssueIds(self, query):
+    def queryForFields(self, query, fields):
         if not query:
             error('No JQL query provided.')
 
@@ -68,7 +68,7 @@ class JiraServerExt(JiraServer):
         content = {
             'jql': query,
             'startAt': 0,
-            'fields': ['summary'],
+            'fields': fields,
             'maxResults': 1000
         }
 
@@ -79,15 +79,21 @@ class JiraServerExt(JiraServer):
         # Parse result
         if response.status == 200:
             data = Json.loads(response.response)
-            print "#### Issues found"
-            issueIds = []
+
+            issues = []
             for item in data['issues']:
-                issueIds.append(item['id'])
-                print u"* {0} - {1}".format(item['id'], item['key'])
-            print "\n"
-            return issueIds
+                issue = {}
+                for field in fields:
+                    issue[field] = item[field]
+                issues.append(issue)
+            return issues
         else:
             error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
+
+    def queryForIssueIds(self, query):
+        issues = self.queryForFields(query, ["id"])
+        # for backwards compatibility, return a flat list with ids
+        return [x["id"] for x in issues]
 
     def get_boards(self, board_name):
         if not board_name:

@@ -33,6 +33,12 @@ Place the latest released version under the `plugins` dir.
 
 ## Types ##
 
+### JiraTrigger
+
+Trigger when a new issue appears top of the search results of a JQL query (like a new release issue, a specific subtask, etc).
+
+![JiraTrigger](images/JiraTrigger.png)
+
 ### Check Issue
 
 ![CheckIssue](images/CheckIssue.png)
