@@ -13,19 +13,25 @@
 
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+      <type type="jira.CreateIssueJson" extends="jira.JiraScript">
+          <property name="jsonObj" size="large" category="input" required="true" description="Issue JSON Object"/>
+
+          <property name="issueId" category="output" required="false" description="ID of the created issue"/>
+    </type>
+
     <type type="jira.CheckIssue" extends="jira.JiraScript">
         <property name="issueId" category="input"/>
         <property name="expectedStatus" category="input" default=""/>
-        <property name="pollInterval" category="input" kind="integer" 
+        <property name="pollInterval" category="input" kind="integer"
                   description="Time in seconds between each polling action" default="30" />
     </type>
 
     <type type="jira.CheckQuery" extends="jira.JiraScript">
         <property name="query" category="input"  description="Query in JQL (JIRA Query Language)" />
-        <property name="issues" category="output" kind="map_string_string" required="false" label="Issues" 
+        <property name="issues" category="output" kind="map_string_string" required="false" label="Issues"
                   description="IDs and summary of found issues"/>
         <property name="expectedStatus" category="input" default=""/>
-        <property name="pollInterval" category="input" kind="integer" 
+        <property name="pollInterval" category="input" kind="integer"
                   description="Time in seconds between each polling action" default="30" />
     </type>
 
