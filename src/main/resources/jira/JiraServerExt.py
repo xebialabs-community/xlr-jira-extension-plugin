@@ -8,8 +8,7 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-
-import com.xhaus.jyson.JysonCodec as Json
+import json
 from jira import JiraServer
 from util import error
 
@@ -29,18 +28,23 @@ class JiraServerExt(JiraServer):
         # Do request
         request = self._createRequest()
         response = request.post('/rest/api/2/search', self._serialize(content), contentType='application/json')
-        # Parse result
-        if response.status == 200:
-            data = Json.loads(response.response)
-
-            issues = {}
+        if response.status != 200:
+            error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
+        data = json.loads(response.response)
+        counter = 0
+        issues = {}
+        while response.status == 200 and 100*counter < data["total"]:
+            data = json.loads(response.response)
             for item in data['issues']:
                 issue = item['key']
                 issues[issue] = (item['fields']['summary'], item['fields']['status']['name'])
-            return issues
+            counter += 1
+            content['startAt'] = 100*counter
+            response = request.post('/rest/api/2/search', self._serialize(content), contentType='application/json')
+            if response.status != 200:
+                error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
+        return issues
 
-        else:
-            error(u"Failed to execute search '{0}' in JIRA.".format(query), response)
 
     def getVersionIdsForProject(self, projectId):
         print "Executing jira.getVersionIdsForProject\n"
@@ -51,7 +55,7 @@ class JiraServerExt(JiraServer):
         if response.status != 200:
             error(u"Unable to find versions for project id %s" % projectId, response)
         versionIds = []
-        for item in Json.loads(response.response):
+        for item in json.loads(response.response):
             versionIds.append(item['id'])
         print str(versionIds) + "\n"
         print "Exiting jira.getVersionIdsForProject\n"
@@ -78,7 +82,7 @@ class JiraServerExt(JiraServer):
 
         # Parse result
         if response.status == 200:
-            data = Json.loads(response.response)
+            data = json.loads(response.response)
 
             issues = []
             for item in data['issues']:
@@ -102,7 +106,7 @@ class JiraServerExt(JiraServer):
         response = request.get("/rest/agile/1.0/board?name=%s" % board_name, contentType="application/json")
         if response.status != 200:
             error(u"Unable to find boards for {0}".format(board_name), response)
-        return Json.loads(response.response)['values']
+        return json.loads(response.response)['values']
 
     def get_all_sprints(self, board):
         if not board:
@@ -112,7 +116,7 @@ class JiraServerExt(JiraServer):
         sprints = {}
         if response.status != 200:
             error(u"Unable to find sprints for board {0}".format(board["name"]), response)
-        sprints_json = Json.loads(response.response)['values']
+        sprints_json = json.loads(response.response)['values']
         for sprint_json in sprints_json:
             sprints[sprint_json["name"]] = sprint_json["id"]
             print "| %s | %s | %s | %s |" % (sprint_json["name"], sprint_json["id"],
