@@ -34,6 +34,6 @@ while  len(tickets) != matchedStatus :
 
 print "#### Issues found"
 for key, value in issues.items():
-     print u"* {0} - {1}".format(jira._link(key), value)
+     print u"* {0} - {1}".format(jira.link(key), value)
 # End for
 
