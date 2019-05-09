@@ -33,6 +33,7 @@ while True:
         print "\nIssue %s status is %s." % (issueId, issueStatus)
         if (issueStatus in expectedStatusList):
             print "\nThe status of issue %s is %s" % (issueId, issueStatus)
+            finalStatus = issueStatus
             break
         else:
             print "\nIssue is not correct status"

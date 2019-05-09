@@ -29,6 +29,7 @@
         <property name="issueId" category="input"/>
         <property name="expectedStatusList" category="input" kind="list_of_string"  description="List one or more expected statuses to check for" default=""/>
         <property name="pollInterval" category="input" kind="integer" description="Time in seconds between each polling action" default="30" />
+        <property name="finalStatus" category="output" description="The final status of the issue on last check" />
     </type>
 
     <type type="jira.CheckQuery" extends="jira.JiraScript">
