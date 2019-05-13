@@ -43,7 +43,7 @@ Trigger when a new issue appears top of the search results of a JQL query (like 
 
 ![CheckIssue](images/CheckIssue.png)
 
-+ Check Issue (statuses) - Polls Jira to check the status of a Issue. It will complete once the issue is in the correct state
++ Check Issue (statuses) - Polls Jira to check the status of a Issue. It will complete once the issue is in the correct status
   * `jiraServer` - Jira server from the Configuration screen in XL Release
   * `username` - Optional username override for the connection to Jira
   * `password` - Optional password override for the connection to Jira
