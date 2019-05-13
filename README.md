@@ -43,7 +43,14 @@ Trigger when a new issue appears top of the search results of a JQL query (like 
 
 ![CheckIssue](images/CheckIssue.png)
 
-
++ Check Issue (statuses) - Polls Jira to check the status of a Issue. It will complete once the issue is in the correct status
+  * `jiraServer` - Jira server from the Configuration screen in XL Release
+  * `username` - Optional username override for the connection to Jira
+  * `password` - Optional password override for the connection to Jira
+  * `issueId` - Jira issue ID to check, e.g. SAN-672
+  * `expectedStatusList` - This is the Jira statuses to complete on, the task will poll until one of these status is met. This checks for a status name, e.g. "Resolved". To double check the case of a status, export an issue to XML and check the value of the status field.
+  * `pollInterval` - Interval in seconds between polling actions
+  * `finalStatus` - Output property that will contain the final status. This can be saved in a release variable and used later in the release.
 ### Check Query
 
 ![CheckQuery](images/CheckQuery.png)

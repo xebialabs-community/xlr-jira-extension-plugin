@@ -31,8 +31,9 @@ while True:
         data = json.loads(response.getResponse())['fields']['status']
         issueStatus = data['name']
         print "\nIssue %s status is %s." % (issueId, issueStatus)
-        if issueStatus == expectedStatus:
-            print "\nThe status of issue %s is 'Resolved'" % (issueId)
+        if issueStatus in expectedStatusList:
+            print "\nThe status of issue %s is %s" % (issueId, issueStatus)
+            finalStatus = issueStatus
             break
         else:
             print "\nIssue is not correct status"
