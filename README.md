@@ -1,3 +1,6 @@
+## XLR 9.0.0 Migration instructions
+If upgrading to XL Release 9.0.0 and you currently use the xlr-jira-extension-plugin provided on xebialabs-community, you must use the [xl-ci-tool](https://github.com/xebialabs-community/xl-ci-tool) to migrate the tasks to the new in-sourced tasks. Please follow the steps available [on our docs site](https://docs.xebialabs.com/v.9.0/xl-release/how-to/jira-plugin/#migration-instructions)
+
 # Preface #
 
 This document describes the functionality provided by the xlr-jira-extension-plugin.
